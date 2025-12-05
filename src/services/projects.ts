@@ -32,3 +32,7 @@ export const submitProject = (formData: FormData) => {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
+
+export const adminGetProjects = () => {
+  return api.get<{ projects: IProject[] }>("/admin/projects");
+};
