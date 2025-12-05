@@ -1,7 +1,7 @@
-import UploadProject from "./pages/UploadProject";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  return <UploadProject />;
+  return <AppRouter />;
 }
 
 export default App;

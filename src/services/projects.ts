@@ -10,25 +10,29 @@ export interface IProject {
   expected_end?: string;
   status: string;
   members?: IProjectMember[];
-  attachments?: IProjectAttachment[];
+  attachments?: IProjectAttachment[]
 }
 export interface IProjectMember {
   id?: number;
   project_id: number;
   name: string;
   role?: string;
-  email?: string;
+  email?: string
 }
 
 export interface IProjectAttachment {
   id?: number;
   project_id: number;
   file_name: string;
-  file_url: string;
+  file_url: string
 }
 
 export const submitProject = (formData: FormData) => {
   return api.post("/projects/submit", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
+};
+
+export const adminGetProjects = () => {
+  return api.get<{ projects: IProject[] }>("/admin/projects");
 };
