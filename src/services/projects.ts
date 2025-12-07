@@ -27,12 +27,12 @@ export interface IProjectAttachment {
   file_url: string
 }
 
-export const submitProject = (formData: FormData) => {
-  return api.post("/projects/submit", formData, {
+export const uploadProject = (formData: FormData) => {
+  return api.post("/upload", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
 
-export const adminGetProjects = () => {
+export const getProjectsList = () => {
   return api.get<{ projects: IProject[] }>("/admin/projects");
 };
