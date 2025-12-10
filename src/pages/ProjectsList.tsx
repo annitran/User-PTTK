@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { adminGetProjects } from "../services/projects";
-import type { IProject } from "../services/projects"
+import { getProjectsList, type IProject } from "../services/projects";
 
 export default function ProjectsList() {
   const [projects, setProjects] = useState<IProject[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await adminGetProjects();
+      const res = await getProjectsList();
       setProjects(res.data.projects);
     };
     fetchData();
